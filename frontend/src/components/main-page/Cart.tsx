@@ -35,7 +35,7 @@ const LeftBox = styled.div`
   padding: 24px;
 `;
 
-const ProductCard = styled.div`
+export const ProductCard = styled.div`
   display: flex;
   align-items: center;
  justify-content: space-around;
@@ -43,7 +43,7 @@ const ProductCard = styled.div`
   margin-bottom: 10px;
 `;
 
-const ProductImage = styled.img`
+export const ProductImage = styled.img`
   width: 150px; /* Adjust width as needed */
   height: 150px; /* Adjust height as needed */
   background-color: lightgray; /* Placeholder color */
@@ -65,11 +65,11 @@ const QuantityInput = styled.input`
 
 `
 
-const ProductTitle = styled.p`
+export const ProductTitle = styled.p`
   margin: 0;
 `;
 
-const ProductPrice = styled.p`
+export const ProductPrice = styled.p`
   margin: 0;
 `;
 
@@ -289,10 +289,8 @@ export const Cart: React.FC<CartProps> = ({ addProducts, onDelete }) => {
             <FontAwesomeIcon icon={faCartShopping} />
             <PaypalText>Direct to Paypal</PaypalText>
           </PayPalButton>
-         
         </PurchaseButtonsContainer>
       </RecieptContainer>
-
     </PurchaseContainer>
   </CartContainer>)}
   </div>

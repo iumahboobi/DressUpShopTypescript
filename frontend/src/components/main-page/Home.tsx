@@ -15,6 +15,7 @@ import { Header } from './Header';
 import { NavigationBar } from './NavigationBar';
 import { Favorite } from './Favorite';
 import { Login } from './Login';
+import { DataBase } from '../../pages/DataBase';
 interface HomeProps {
 
 
@@ -107,6 +108,8 @@ export const Home: React.FC<HomeProps> = () => {
                 <Route path="/women" element={<WomenProducts womenProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/accessories" element={<AccessoriesProducts accessories={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/electronics" element={<Electronics electroProducts ={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
+                <Route path="/fromMongoDB" element={<DataBase/>}/>
+
             </Routes>
         </div>
     )

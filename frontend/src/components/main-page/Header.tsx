@@ -6,9 +6,14 @@ import { faCartShopping, faSearch, faUser, faHeart } from '@fortawesome/free-sol
 import { Banner } from "./Banner";
 import { NavigationBar } from "./NavigationBar";
 import { HorizontalLine } from "./Footer";
+import { ProductSearch } from "./ProductSearch";
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div<{ isHidden: boolean }>`
 margin: 0 auto;
+left:0;
+right: 0;
+transition: transform 1s ease-in-out;
+transform: translateY(${props => (props.isHidden ? '-100%' : '0')});
 `
 
 const flyIn = keyframes`
@@ -53,7 +58,8 @@ display:flex;
 justify-content: space-between;
 align-items: center;
 color:#000000;
-padding:10px;
+padding:14px;
+height: 50px;
 `
 
 const Logo = styled.div`
@@ -67,21 +73,16 @@ const LogoLink = styled(Link)`
 `;
 
 
-const FixedContainer = styled.div<{ isFixed: boolean }>`
-position: ${props => props.isFixed ? 'fixed' : 'static'};
+const FixedContainer = styled.div`
+
 width: 100%;
 background-color: aliceblue;
 top: 0;
-transition: top 0.3s ease;
+transition: top 0.6s ease;
 `
 
 /*Cart style */
 
-const Cart = styled.div`
-font-size: 50px;
-letter-spacing: 4px;
-color:#000000;
-`
 const CartLink = styled(Link)`
   text-decoration: none;
   color: inherit; /* Inherit color from the parent */
@@ -115,49 +116,46 @@ align-items: end;
 
 interface HeaderProps {
   cartItemCount: number
-  favItemCount:number
+  favItemCount: number
 }
 
-export const Header: React.FC<HeaderProps> = ({ cartItemCount,favItemCount }) => {
+export const Header: React.FC<HeaderProps> = ({ cartItemCount, favItemCount }) => {
 
-  const [isFixed, setIsFixed] = useState<boolean>(false)
+  const [isHidden, setIsHidden] = useState<boolean>(false)
+
 
   useEffect(() => {
 
     const handleScroll = () => {
 
-      const scrollPosition = window.scrollY
-
-      if (scrollPosition > 1) {
-        setIsFixed(true)
-      }
-      else { setIsFixed(false) }
+      const currentScrollPos = window.pageYOffset
+      const isAtTop = currentScrollPos > 0
+      setIsHidden(isAtTop)
     }
     window.addEventListener('scroll', handleScroll)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-
   }, [])
 
-  return <HeaderContainer>
+  return <HeaderContainer isHidden={isHidden}>
     <AdvertiseContainer>
       <AdvertiseText>New Commers</AdvertiseText>
       <AdvertiseText>BUY ONLINE + PICK UP IN STORE</AdvertiseText>
       <AdvertiseText>FREE SHIPPING ON ORDERS OVER 75$</AdvertiseText>
     </AdvertiseContainer>
 
-    <FixedContainer isFixed={isFixed}>
+    <FixedContainer >
       <LogoProfile  >
         <div>
-          <FontAwesomeIcon icon={faSearch} size={'2x'} />
+          <ProductSearch />
         </div>
         <LogoLink to='/'><Logo>DressUp</Logo>
         </LogoLink>
         <Profile>
           <ProfileLink to='/login' >
-          <FontAwesomeIcon icon={faUser} size={'2x'}/>
+            <FontAwesomeIcon icon={faUser} size={'2x'} />
           </ProfileLink>
           <CartLink to='/cart' >
             <FontAwesomeIcon icon={faCartShopping} size={'2x'}

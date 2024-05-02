@@ -52,5 +52,6 @@ export const NavigationBar: React.FC<NavigationBarProps> = () => {
     <ListItem><StyledLink to='/women'>Women</StyledLink></ListItem>
     <ListItem><StyledLink to='/accessories'>Accessories</StyledLink></ListItem>
     <ListItem><StyledLink to='/electronics'>Electronics</StyledLink></ListItem>
+    <ListItem><StyledLink to='/fromMongoDB'>FromMongoDB</StyledLink></ListItem>
   </NavigationBarOne>
 }
