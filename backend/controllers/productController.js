@@ -5,14 +5,27 @@ exports.createProduct = async (req, res) => {
 
     try {
 
-        // check if the product already in Database is
-        const existingProduct = await Product.findOne({ title: req.body.title })
-        if (existingProduct) {
+        const productsToAdd = req.body
+        const addedProducts = []
 
-            return res.status(409).json({ error: `Product already exist with title name: ${req.body.title}` })
+        // iterate through each product in the request body
+        for (const productData of productsToAdd) {
+
+            // check if the product already in Database is
+            const existingProduct = await Product.findOne({ title: productData.title })
+
+            if (existingProduct) {
+
+                res.status(409).json({ error: `Product already exist with title name: ${productData.title}` })
+                return
+            }
+            else {
+                const newProduct = await Product.create(productData);
+                addedProducts.unshift(newProduct)
+            }
+
         }
-        // Product does not exist then create it
-        const product = await Product.create(req.body)
+
         res.status(201).json(product)
 
     } catch (error) {

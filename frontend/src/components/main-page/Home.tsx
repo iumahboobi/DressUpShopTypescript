@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
-import { products } from '../../data/products';
+import axios from 'axios';
 import { AccessoriesProducts } from '../../../src/pages/AccessoriesProducts';
 import { MenProducts } from '../../pages/MenProducts';
 import { WomenProducts } from '../../pages/WomenProducts';
@@ -12,10 +12,9 @@ import { Cart } from './Cart';
 import { All } from './All';
 import { Product } from './Card';
 import { Header } from './Header';
-import { NavigationBar } from './NavigationBar';
 import { Favorite } from './Favorite';
 import { Login } from './Login';
-import { DataBase } from '../../pages/DataBase';
+
 interface HomeProps {
 
 
@@ -26,9 +25,23 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = () => {
 
+    const [products, setProducts] = useState<Product[]>([])
     const [addProducts, setAddProduct] = useState<Product[]>([])
-    
     const [favProducts, setFavProducts] = useState<Product[]>([])
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/products')
+                console.log('response', response)
+                setProducts(response.data)
+            } catch (error) {
+                console.log('Error Fetching data:', error)
+            }
+        }
+        fetchData()
+    }, [])
 
     useEffect(() => {
         const storedProducts = localStorage.getItem('addProducts')
@@ -103,13 +116,11 @@ export const Home: React.FC<HomeProps> = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/cart" element={<Cart addProducts={addProducts} onDelete={onDeleteItem} />} />
                 <Route path="/favorite" element={<Favorite addProducts={favProducts} onAddToCart={handleAddToCart} onDelete={removeFromFavorites} />} />
-                <Route path="/all" element={<All handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
+                <Route path="/all" element={<All products={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/men" element={<MenProducts menProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/women" element={<WomenProducts womenProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/accessories" element={<AccessoriesProducts accessories={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
-                <Route path="/electronics" element={<Electronics electroProducts ={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
-                <Route path="/fromMongoDB" element={<DataBase/>}/>
-
+                <Route path="/electronics" element={<Electronics electroProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
             </Routes>
         </div>
     )

@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect, useRef } from 'react'
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Product } from './Card';
-import { products } from '../../data/products'
+//import { products } from '../../data/products'
 import styled from 'styled-components';
 import { ProductCard, ProductImage, ProductTitle, ProductPrice } from './Cart';
 
@@ -61,9 +62,22 @@ export const ProductSearch = () => {
 
     const [searchQuery, setSearchQuery] = useState<string>('')
     const [searchResult, setSearchResult] = useState<Product[]>([])
+    const [products, setProducts] = useState<Product[]>([])
     const searchListRef = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLInputElement>(null)
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/products')
+                console.log('response', response)
+                setProducts(response.data)
+            } catch (error) {
+                console.log('Error Fetching data:', error)
+            }
+        }
+        fetchData()
+    }, [])
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside)
 

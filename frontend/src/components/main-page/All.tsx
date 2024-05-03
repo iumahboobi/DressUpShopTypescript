@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import Card, { ProductsContainer } from './Card';
-import { products } from '../../data/products';
 import { Product } from './Card';
 
 interface AllProps {
   handleAddToCart: (product: Product) => void
   handleAddToFavorite: (product: Product) => void
+  products: Product[]
 }
 
-export const All: React.FC<AllProps> = ({ handleAddToCart,handleAddToFavorite }) => {
+export const All: React.FC<AllProps> = ({ handleAddToCart,handleAddToFavorite,products }) => {
 
   const [cartItems, setCartItems] = useState<string[]>([])
   const [favItems, setFavItems] = useState<string[]>([])
@@ -35,7 +35,7 @@ export const All: React.FC<AllProps> = ({ handleAddToCart,handleAddToFavorite })
 
   return (
     <ProductsContainer>
-      {products.map((product) => (
+      {products.map((product:Product) => (
         <Card key={product.id} product={product} onAddToCart={handleAddToCart} onAddToFavorite={handleAddToFavorite} isAddedToCart={cartItems.includes(product.id)} onToggleCart={() => toggleCartItem(product.id)} onToggleFav={() => toggleFavItem(product.id)} />
       ))}
     </ProductsContainer>

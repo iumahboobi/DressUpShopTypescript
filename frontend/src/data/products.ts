@@ -1,8 +1,7 @@
 // Define an interface for the product data structure
-interface Rating {
+/** interface Rating {
  rate:number,
  count:number
-
 }
 
 interface Product {
@@ -16,7 +15,7 @@ interface Product {
 }
 
 // Create an array of Product objects
-export const products: Product[] = [
+ const products: Product[] = [
   {
     id: '1',
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -224,3 +223,5 @@ export const products: Product[] = [
     rating: { rate: 3.6, count: 145 },
   },
 ];
+ */
+export {}
