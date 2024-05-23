@@ -11,6 +11,11 @@ justify-content: space-around;
 list-style-type: none;
 color:#000000;
 padding:10px;
+@media (max-width:375px){
+ display : block;
+ margin: 10px auto;
+}
+
 `
 
 const ListItem = styled.li`

@@ -7,6 +7,12 @@ export const ProductsContainer = styled.div`
   display: flex;
   flex-wrap:wrap;
   gap: 28px;
+  
+  @media (max-width:375px) {
+    padding: 0px;
+  }
+
+
 `;
 
 // Styled component for the product card container
@@ -31,6 +37,9 @@ padding: 12px;
 min-width: 47%;
 justify-content: space-around;
 border-radius:43% 57% 74% 26% / 25% 71% 29% 75%;
+@media (max-width:375px) { 
+      display: block;
+    }
 `
 const ProductImmage = styled.div`
 `
@@ -149,7 +158,7 @@ export interface CardProps {
   onDeleteFromFavorites?: (product: Product) => void
 }
 
-export const Card: React.FC<CardProps> = ({ product,isAddedToCart, isAddedToFavorite, onAddToCart, onAddToFavorite,  onToggleCart, onDeleteFromFavorites }) => {
+export const Card: React.FC<CardProps> = ({ product, isAddedToCart, isAddedToFavorite, onAddToCart, onAddToFavorite, onToggleCart, onDeleteFromFavorites }) => {
 
   return <Wrapper key={product.id}>
     <ProductImmage >
@@ -177,7 +186,7 @@ export const Card: React.FC<CardProps> = ({ product,isAddedToCart, isAddedToFavo
           </RatingCountContainer>
 
           <ProductButtons>
-            <ProductPriceButton onClick={() => isAddedToCart ? onToggleCart && onToggleCart(): onAddToCart(product)}>{isAddedToCart ? 'Add to Cart' : 'Add to Cart'}</ProductPriceButton>
+            <ProductPriceButton onClick={() => isAddedToCart ? onToggleCart && onToggleCart() : onAddToCart(product)}>{isAddedToCart ? 'Add to Cart' : 'Add to Cart'}</ProductPriceButton>
             {isAddedToFavorite ?
               (<ProductDeleteButton onClick={() => onDeleteFromFavorites && onDeleteFromFavorites(product)}>{'Delete'}</ProductDeleteButton>)
               : (<ProductPriceButton onClick={() => onAddToFavorite(product)}>{'Add Favorite'}</ProductPriceButton>

@@ -39,6 +39,15 @@ align-items: center;
 list-style-type: none;
 color:#000000;
 padding:10px;
+
+
+@media (max-width:375px) {
+ width : auto ;
+ display: flex;
+ flex-direction:column;
+ color: #2d5463;
+ font-weight: 400;
+}
 `
 
 const Profile = styled.div`

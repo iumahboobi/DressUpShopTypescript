@@ -29,10 +29,22 @@ const CartContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
+
+  /*Media query for mobile devices */
+  @media (max-width:375px) {
+    display: flex;
+   flex-direction : column ;
+   flex-wrap: nowrap;
+  }
 `;
 const LeftBox = styled.div`
   flex: 3; /* 75% width */
   padding: 24px;
+
+  /*Media query for mobile devices */
+  @media (max-width:375px) {
+    padding: 0;
+  }
 `;
 
 export const ProductCard = styled.div`
@@ -41,6 +53,10 @@ export const ProductCard = styled.div`
  justify-content: space-around;
   padding: 10px;
   margin-bottom: 10px;
+  @media (max-width:375px) {
+    flex-direction: column;
+    gap: 12px;
+  }
 `;
 
 export const ProductImage = styled.img`
@@ -156,18 +172,26 @@ flex-direction:column;
 flex: 1;
 justify-content: space-evenly;
 align-items: center;
+
+@media (max-width:375px){
+  gap: 12px;
+}
 `
 const PurchaseButton = styled.button`
 padding: 12px;
 border: none;
 border-radius: 10px;
 width: 50%;
-font-size: large;
+font-size: medium;
 color: #ffffff;
 background-color: #000000;
 &:hover {
 cursor: pointer;
 }
+@media (max-width:375px){
+  width: 100%;
+}
+
 `
 const PayPalButton = styled(PurchaseButton)`
 background-color: #1c19e7e8;
@@ -186,6 +210,11 @@ margin-right: 5px;
 `
 const PaypalText = styled.p`
 margin: 0;
+
+@media (max-width:375px){
+  font-size: 12px;
+}
+
 `
 const ParaText = styled.p`
 color: #8d8d8d;

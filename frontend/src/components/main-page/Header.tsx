@@ -38,6 +38,13 @@ justify-content: space-between;
 background-color: #eec6d5;
 color:#ffff;
 padding:10px;
+
+/*Media query for mobile devices */
+@media (max-width:600px) {
+  display: flex;
+  flex-direction: column;
+}
+
 `
 const AdvertiseText = styled.p`
 animation: ${flyIn} 6s ease  infinite;
@@ -51,6 +58,12 @@ opacity:0;
 &:nth-child(3) {
   animation-delay: 1s;
 }
+
+/*Media query for mobile devices */
+@media (max-width:375px) {
+  animation:none;
+  opacity:1;
+}
 `
 
 const LogoProfile = styled.div`
@@ -60,6 +73,13 @@ align-items: center;
 color:#000000;
 padding:14px;
 height: 50px;
+/*Media query for mobile devices */
+@media (max-width:375px) {
+ display: block;
+  height: auto;
+  margin: 0 auto;
+  padding: 12px 0;
+}
 `
 
 const Logo = styled.div`

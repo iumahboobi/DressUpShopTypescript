@@ -28,6 +28,11 @@ font-size: 14px;
 &::placeholder {
     color: #808080a6;
 }
+
+@media (max-width:375px){
+ width: auto;
+ padding: 12px 40px;
+}
 `
 const SearchList = styled.div`
 background-color: #f0f8ff;
@@ -38,6 +43,11 @@ z-index: 1;
 width:40%;
 height: 400px;
 overflow: scroll;
+
+@media (max-width:375px){
+width: 100%;
+padding: 0;
+}
 `
 const SearchItem = styled.ul<{ isProductListItem: boolean }>`
 
@@ -49,6 +59,9 @@ align-items: center;
 margin-bottom: 10px;
 &:hover {
     background-color: #eec6d56f;
+}
+@media (max-width:375px){
+display:block;
 }
 `
 const SearchImage = styled.img`
