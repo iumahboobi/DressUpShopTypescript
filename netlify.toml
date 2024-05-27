@@ -1,6 +1,6 @@
 [build]
   base    = "frontend"
-  publish = "/frontend/build" # or wherever your frontend build output is located
+  publish = "build" # or wherever your frontend build output is located
   functions = "backend/functions" # if you have serverless functions in the backend
 
 [dev]
