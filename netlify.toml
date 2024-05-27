@@ -2,6 +2,7 @@
   base    = "frontend"
   publish = "build" # or wherever your frontend build output is located
   functions = "backend/functions" # if you have serverless functions in the backend
+  command = "npm run build"
 
 [dev]
-  framework = "create-react-app" # adjust this according to your frontend framework
+  framework = "react" # adjust this according to your frontend framework
