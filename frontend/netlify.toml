@@ -1,0 +1,7 @@
+[build]
+  base    = "frontend"
+  publish = "frontend/dist" # or wherever your frontend build output is located
+  functions = "backend/functions" # if you have serverless functions in the backend
+
+[dev]
+  framework = "create-react-app" # adjust this according to your frontend framework
