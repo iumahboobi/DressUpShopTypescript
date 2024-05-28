@@ -4,5 +4,5 @@
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "14.x"
+  NODE_VERSION = "20.12.2"
   NPM_FLAGS = "--legacy-peer-deps"  # If you need to handle peer dependency issues
