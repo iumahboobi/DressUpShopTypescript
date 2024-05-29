@@ -18,7 +18,6 @@ const Searchicon = styled(FontAwesomeIcon)`
 margin:14px;
 position:absolute;
 `
-
 const InputContainer = styled.input`
 padding: 12px 40px 12px 12px;
 border-radius: 8px;
