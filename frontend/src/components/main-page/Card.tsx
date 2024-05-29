@@ -8,7 +8,7 @@ export const ProductsContainer = styled.div`
   flex-wrap:wrap;
   gap: 28px;
   
-  @media (max-width:375px) {
+  @media (max-width:431px) {
     padding: 0px;
   }
 
@@ -37,7 +37,7 @@ padding: 12px;
 min-width: 47%;
 justify-content: space-around;
 border-radius:43% 57% 74% 26% / 25% 71% 29% 75%;
-@media (max-width:375px) { 
+@media (max-width:431px) { 
       display: block;
     }
 `

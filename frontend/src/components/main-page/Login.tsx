@@ -11,7 +11,7 @@ box-shadow: 0 4px 14px rgba(0,0,0,0.3);
 margin: 40px auto;
 width: 350px;
 
-@media (max-width:375px){
+@media (max-width:431px){
 width:auto ;
 margin: 10px;
 padding: 30px;

@@ -31,7 +31,7 @@ const CartContainer = styled.div`
   padding: 30px;
 
   /*Media query for mobile devices */
-  @media (max-width:375px) {
+  @media (max-width:431px) {
     display: flex;
    flex-direction : column ;
    flex-wrap: nowrap;
@@ -42,7 +42,7 @@ const LeftBox = styled.div`
   padding: 24px;
 
   /*Media query for mobile devices */
-  @media (max-width:375px) {
+  @media (max-width:430px) {
     padding: 0;
   }
 `;
@@ -173,7 +173,7 @@ flex: 1;
 justify-content: space-evenly;
 align-items: center;
 
-@media (max-width:375px){
+@media (max-width:430px){
   gap: 12px;
 }
 `
@@ -188,7 +188,7 @@ background-color: #000000;
 &:hover {
 cursor: pointer;
 }
-@media (max-width:375px){
+@media (max-width:431px){
   width: 100%;
 }
 
@@ -211,7 +211,7 @@ margin-right: 5px;
 const PaypalText = styled.p`
 margin: 0;
 
-@media (max-width:375px){
+@media (max-width:431px){
   font-size: 12px;
 }
 

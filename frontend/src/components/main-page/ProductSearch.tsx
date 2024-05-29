@@ -29,7 +29,7 @@ font-size: 14px;
     color: #808080a6;
 }
 
-@media (max-width:375px){
+@media (max-width:431px){
  width: auto;
  padding: 12px 40px;
 }
@@ -44,7 +44,7 @@ width:40%;
 height: 400px;
 overflow: scroll;
 
-@media (max-width:375px){
+@media (max-width:431px){
 width: 100%;
 padding: 0;
 }
@@ -60,7 +60,7 @@ margin-bottom: 10px;
 &:hover {
     background-color: #eec6d56f;
 }
-@media (max-width:375px){
+@media (max-width:431px){
 display:block;
 }
 `

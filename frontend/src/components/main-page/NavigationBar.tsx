@@ -11,7 +11,7 @@ justify-content: space-around;
 list-style-type: none;
 color:#000000;
 padding:10px;
-@media (max-width:375px){
+@media (max-width:431px){
  display : block;
  margin: 10px auto;
 }

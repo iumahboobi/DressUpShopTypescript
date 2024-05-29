@@ -60,7 +60,7 @@ opacity:0;
 }
 
 /*Media query for mobile devices */
-@media (max-width:375px) {
+@media (max-width:431px) {
   animation:none;
   opacity:1;
 }
@@ -74,7 +74,7 @@ color:#000000;
 padding:14px;
 height: 50px;
 /*Media query for mobile devices */
-@media (max-width:375px) {
+@media (max-width:431px) {
  display: block;
   height: auto;
   margin: 0 auto;

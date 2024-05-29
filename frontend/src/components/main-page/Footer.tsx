@@ -41,7 +41,7 @@ color:#000000;
 padding:10px;
 
 
-@media (max-width:375px) {
+@media (max-width:431px) {
  width : auto ;
  display: flex;
  flex-direction:column;
