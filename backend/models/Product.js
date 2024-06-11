@@ -13,5 +13,4 @@ const productSchema = new mongoose.Schema({
         count: Number
     }
 })
-
 module.exports = mongoose.model('Product', productSchema)

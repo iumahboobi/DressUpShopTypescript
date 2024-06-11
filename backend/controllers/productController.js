@@ -8,6 +8,8 @@ exports.createProduct = async (req, res) => {
         const productsToAdd = req.body
         const addedProducts = []
 
+        console.log('Received Data', productsToAdd)
+
         // iterate through each product in the request body
         for (const productData of productsToAdd) {
 
