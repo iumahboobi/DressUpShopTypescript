@@ -6,7 +6,7 @@ import { faStar, faGlobe } from '@fortawesome/free-solid-svg-icons';
 export const ProductsContainer = styled.div` 
   display: flex;
   flex-wrap:wrap;
-  gap: 28px;
+  gap: 50px;
   
   @media (max-width:431px) {
     padding: 0px;
@@ -32,7 +32,7 @@ export const ProductCardContainer = styled.div`
 const Wrapper = styled.div`
 display: flex;
 margin: 0 auto;
-background-color: aliceblue;
+background-color: #39879c1a;
 padding: 12px;
 min-width: 47%;
 justify-content: space-around;
@@ -45,10 +45,8 @@ const ProductImmage = styled.div`
 `
 
 const ProductInfo = styled.div`
-height: 580px;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 `
 const ProductText = styled.div`
  height: 300px;
@@ -69,10 +67,11 @@ margin: 0 0 47px 38px;
   letter-spacing: 0.2em;
 `
 const ProductDescriptions = styled.p`
-  height: 125px;
+  min-height: 100px;
   margin: 0 0 0 38px;
   font-family: 'Playfair Display', serif;
   color: #8d8d8d;
+  text-align: justify;
   line-height: 1.7em;
   font-size: 15px;
   font-weight: lighter;
@@ -159,7 +158,9 @@ export interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ product, isAddedToCart, isAddedToFavorite, onAddToCart, onAddToFavorite, onToggleCart, onDeleteFromFavorites }) => {
-
+  const { rating } = product;
+  const rate = rating ? rating.rate : 'N/A';
+  const count = rating ? rating.count : 'N/A';
   return <Wrapper key={product.id}>
     <ProductImmage >
       <img src={product.image} alt={product.title} height="420" width="327" />
@@ -167,7 +168,6 @@ export const Card: React.FC<CardProps> = ({ product, isAddedToCart, isAddedToFav
     <ProductInfo >
       <ProductText>
         <ProductHeader>{product.title}</ProductHeader>
-        <ProductHeaderTwo>by studio and friends</ProductHeaderTwo>
         <ProductDescriptions>{product.description}</ProductDescriptions>
       </ProductText>
       <div>
@@ -177,11 +177,11 @@ export const Card: React.FC<CardProps> = ({ product, isAddedToCart, isAddedToFav
           <RatingCountContainer>
             <div>
               <FontAwesomeIcon icon={faStar} color='gold' />
-              <RateSpan>Rating: {product.rating.rate}</RateSpan>
+              <RateSpan>Rating: {rate}</RateSpan>
             </div>
             <div>
               <FontAwesomeIcon icon={faGlobe} />
-              <CountSpan>Count: {product.rating.count}</CountSpan>
+              <CountSpan>Count: {count}</CountSpan>
             </div>
           </RatingCountContainer>
 

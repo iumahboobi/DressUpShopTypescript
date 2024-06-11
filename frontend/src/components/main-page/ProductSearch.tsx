@@ -82,7 +82,6 @@ export const ProductSearch = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/products')
-                console.log('response', response)
                 setProducts(response.data)
             } catch (error) {
                 console.log('Error Fetching data:', error)

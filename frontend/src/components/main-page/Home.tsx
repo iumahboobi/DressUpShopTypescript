@@ -14,6 +14,9 @@ import { Product } from './Card';
 import { Header } from './Header';
 import { Favorite } from './Favorite';
 import { Login } from './Login';
+import { AddInfos } from './AddInfos';
+import { AddProducts } from './AddProducts';
+
 
 interface HomeProps {
 
@@ -34,7 +37,6 @@ export const Home: React.FC<HomeProps> = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/products')
-                console.log('response', response)
                 setProducts(response.data)
             } catch (error) {
                 console.log('Error Fetching data:', error)
@@ -112,8 +114,7 @@ export const Home: React.FC<HomeProps> = () => {
         <div>
             <Header cartItemCount={addProducts.length} favItemCount={favProducts.length} />
             <Routes>
-                <Route path="/" element={<Banner />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Banner/>} />
                 <Route path="/cart" element={<Cart addProducts={addProducts} onDelete={onDeleteItem} />} />
                 <Route path="/favorite" element={<Favorite addProducts={favProducts} onAddToCart={handleAddToCart} onDelete={removeFromFavorites} />} />
                 <Route path="/all" element={<All products={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
@@ -121,6 +122,8 @@ export const Home: React.FC<HomeProps> = () => {
                 <Route path="/women" element={<WomenProducts womenProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/accessories" element={<AccessoriesProducts accessories={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/electronics" element={<Electronics electroProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
+                <Route path="/addProducts" element={<AddProducts/>} />
+                <Route path="/infoForm" element={<AddInfos />} />
             </Routes>
         </div>
     )
