@@ -13,9 +13,10 @@ import { All } from './All';
 import { Product } from './Card';
 import { Header } from './Header';
 import { Favorite } from './Favorite';
-import { Login } from './Login';
+import { Login } from './LoginForm';
 import { AddInfos } from './AddInfos';
 import { AddProducts } from './AddProducts';
+import { RegisterForm } from './RegisterForm';
 
 
 interface HomeProps {
@@ -124,6 +125,8 @@ export const Home: React.FC<HomeProps> = () => {
                 <Route path="/electronics" element={<Electronics electroProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/addProducts" element={<AddProducts/>} />
                 <Route path="/infoForm" element={<AddInfos />} />
+                <Route path="/loginForm" element={<Login/>} />
+                <Route path="/registerForm" element={<RegisterForm/>} />
             </Routes>
         </div>
     )

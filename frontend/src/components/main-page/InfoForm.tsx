@@ -107,7 +107,6 @@ export const InfoForm: React.FC = () => {
         <div key={index}>
           <FormGroup>
             <Label>First Name
-
             </Label>
             <Input type='text' name='fname' value={info.fname} onChange={(e) => handleChange(index, e)} required />
           </FormGroup>

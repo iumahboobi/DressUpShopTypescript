@@ -58,6 +58,8 @@ export const NavigationBar: React.FC<NavigationBarProps> = () => {
     <ListItem><StyledLink to='/accessories'>Accessories</StyledLink></ListItem>
     <ListItem><StyledLink to='/electronics'>Electronics</StyledLink></ListItem>
     <ListItem><StyledLink to='/addProducts'>AddProducts</StyledLink></ListItem>
-    <ListItem><StyledLink to='/infoForm'>Info Form</StyledLink></ListItem>
+    <ListItem><StyledLink to='/infoForm'>Info</StyledLink></ListItem>
+    <ListItem><StyledLink to='/loginForm'>Log In</StyledLink></ListItem>
+    <ListItem><StyledLink to='/registerForm'>Register</StyledLink></ListItem>
   </NavigationBarOne>
 }

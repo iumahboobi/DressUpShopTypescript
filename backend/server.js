@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const productRoutes = require('./routes/productRoutes')
 const infoRoutes = require('./routes/infoRoutes')
+const registerRoutes = require('./routes/registerRoutes')
 const cors = require('cors');
 
 const app = express();
@@ -33,6 +34,7 @@ db.once('open', async () => {
 // Routes
 app.use('/api', productRoutes)
 app.use('/api/infos', infoRoutes)
+app.use('/api/auth/register', registerRoutes)
 
 // Start server
 app.listen(PORT, () => {
