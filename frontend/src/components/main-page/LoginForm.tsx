@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios, { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ErrorMessage,SuccessMessage } from './InfoForm';
+import { useAuth } from './AuthContext';
 
 
 const FormContainer = styled.div`
@@ -56,6 +58,7 @@ export const Login: React.FC = () => {
     const [errorMessage, setErrorMessage] = useState('')
     const [successMessage, setSuccessMessage] = useState('')
     const navigate = useNavigate();
+    const {login} = useAuth()
   
 
 
@@ -71,13 +74,12 @@ export const Login: React.FC = () => {
         e.preventDefault()
         try {
 
-            const response= await axios.post('http://localhost:5000/api/users',credentials)
+            const response= await axios.post('http://localhost:5000/api/auth/login',credentials)
             
             if(response.status ===200){
-                setSuccessMessage('Login Successfull Redirecting...')
-                setTimeout(()=>{
-                    navigate('/addProducts')
-                },1000)
+                login(response.data.token,response.data.email)
+                setSuccessMessage('Login Successfull Redirecting...') 
+                setTimeout(()=>navigate('/addProducts'),4000) 
             }
 
         } catch (error) {
@@ -86,7 +88,6 @@ export const Login: React.FC = () => {
 
             else {setErrorMessage('Failed To Login')}
         }
-
     }
 
     return <FormContainer>
@@ -106,6 +107,8 @@ export const Login: React.FC = () => {
             <FormGroup>
                 <Button type='submit'>Log In</Button>
             </FormGroup>
+            {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+            {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
         </form>
     </FormContainer>
 }

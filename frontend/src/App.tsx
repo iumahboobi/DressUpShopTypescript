@@ -6,20 +6,23 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import { Footer } from './components/main-page/Footer';
 import { Home } from './components/main-page/Home';
 import { All } from './components/main-page/All';
+import { AuthProvider } from './components/main-page/AuthContext';
 
 
 function App() {
 
   return (
     <Router>
-      <div className="App">
-        <TransitionGroup>
-          <CSSTransition classNames="fade" timeout={700}>
-            <Home/>
-          </CSSTransition>
-        </TransitionGroup>
-        <Footer />
-      </div>
+    <AuthProvider>
+        <div className="App">
+          <TransitionGroup>
+            <CSSTransition classNames="fade" timeout={700}>
+              <Home />
+            </CSSTransition>
+          </TransitionGroup>
+          <Footer />
+        </div>
+        </AuthProvider>
     </Router>
   );
 }

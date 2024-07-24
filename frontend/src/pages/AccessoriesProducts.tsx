@@ -13,7 +13,7 @@ interface accessoriesProps {
 export const AccessoriesProducts: React.FC<accessoriesProps> = ({ accessories, handleAddToCart, handleAddToFavorite }) => {
   return (
     <ProductsContainer>
-      {accessories.filter((product => product.category === "jewelery")).map(product => (
+      {accessories.filter((product => product.category === "jewelry")).map(product => (
         <Card key={product.id} product={product} onAddToCart={handleAddToCart} onAddToFavorite={handleAddToFavorite} isAddedToCart={false} />
       ))}
     </ProductsContainer>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components'
+import { useAuth } from './AuthContext'
 
 const NavigationBarOne = styled.ul`
 position: sticky;
@@ -51,15 +52,30 @@ interface NavigationBarProps {
 
 export const NavigationBar: React.FC<NavigationBarProps> = () => {
 
+  const { token, logout } = useAuth()
+
+
   return <NavigationBarOne className="navigation">
     <ListItem><StyledLink to='/all'>All</StyledLink></ListItem>
     <ListItem><StyledLink to='/men'>Men</StyledLink></ListItem>
     <ListItem><StyledLink to='/women'>Women</StyledLink></ListItem>
     <ListItem><StyledLink to='/accessories'>Accessories</StyledLink></ListItem>
-    <ListItem><StyledLink to='/electronics'>Electronics</StyledLink></ListItem>
     <ListItem><StyledLink to='/addProducts'>AddProducts</StyledLink></ListItem>
-    <ListItem><StyledLink to='/infoForm'>Info</StyledLink></ListItem>
-    <ListItem><StyledLink to='/loginForm'>Log In</StyledLink></ListItem>
-    <ListItem><StyledLink to='/registerForm'>Register</StyledLink></ListItem>
+    <ListItem><StyledLink to='/electronics'>Electronics</StyledLink></ListItem>
+    {token ? (
+
+      <>
+        
+        <ListItem><StyledLink to='/loginForm' onClick={logout}>Log Out</StyledLink></ListItem>
+      </>
+
+    ) : (
+
+      <>
+        <ListItem><StyledLink to='/loginForm'>Log In</StyledLink></ListItem>
+        <ListItem><StyledLink to='/registerForm'>Register</StyledLink></ListItem>
+      </>
+
+    )}
   </NavigationBarOne>
 }

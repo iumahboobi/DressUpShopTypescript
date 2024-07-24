@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios, { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { ErrorMessage,SuccessMessage } from './InfoForm';
+import { ErrorMessage, SuccessMessage } from './InfoForm';
 
 
 const FormContainer = styled.div`
@@ -66,7 +66,6 @@ export const RegisterForm: React.FC = () => {
         setRegisterArray(newArray)
         setErrorMessage('')
         setSuccessMessage('')
-    
     }
 
 
@@ -75,7 +74,7 @@ export const RegisterForm: React.FC = () => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/register', registerArray)
             setSuccessMessage('Registeration Successful. Please Login')
-            setRegisterArray([{email:'', password:''}])
+            setRegisterArray([{ email: '', password: '' }])
         }
         catch (error) {
             setErrorMessage(`User with Email  already exist. Please Log In`)
@@ -103,10 +102,9 @@ export const RegisterForm: React.FC = () => {
             <FormGroup>
                 <Button type='submit'>Register</Button>
             </FormGroup>
-        
             {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
         </form>
-        
+
     </FormContainer>
 }
