@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
-import axios, { AxiosError } from 'axios';
+import  { AxiosError } from 'axios';
 
 //Styled components
 
@@ -84,7 +84,7 @@ export const InfoForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/infos', infoArray);
+      
       setSuccessMessage('Your information is added Successfuly! :)')
 
     } catch (error) {

@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Product } from './Card';
 //import { products } from '../../data/products'
 import styled from 'styled-components';
-import { ProductCard, ProductImage, ProductTitle, ProductPrice } from './Cart';
+import { ProductTitle, ProductPrice } from './Cart';
 
 
 const SearchContainer = styled.div`

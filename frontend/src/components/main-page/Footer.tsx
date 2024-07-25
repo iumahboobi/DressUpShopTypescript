@@ -6,29 +6,6 @@ background-color: #eec6d5;
 margin: 12px auto;
 `
 
-const AdvertiseContainer = styled.div`
-display:flex;
-justify-content: space-between;
-background-color: #eec6d5;
-color:#ffff;
-padding:10px;
-`
-
-const LogoProfile = styled.div`
-display:flex;
-justify-content: space-between;
-align-items: center;
-color:#000000;
-padding:10px;
-`
-
-const Logo = styled.div`
-font-size: 50px;
-letter-spacing: 4px;
-color:#000000;
-
-`
-
 const NavigationBar = styled.ul`
 margin: 0 auto;
 height: 200px;
@@ -48,13 +25,6 @@ padding:10px;
  color: #2d5463;
  font-weight: 400;
 }
-`
-
-const Profile = styled.div`
-display:flex;
-justify-content: space-between;
-color:#000000;
-min-width: 15%;
 `
 export const HorizontalLine = styled.div`
 width: 100%; /* Adjust the width as needed */

@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import { Product } from './Card';
 import Card, { ProductsContainer } from './Card';
-
 
 const FavBanner = styled.div`
 display: flex;

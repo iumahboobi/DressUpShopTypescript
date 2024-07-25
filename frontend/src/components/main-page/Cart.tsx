@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import Card, { Product } from './Card';
+import { Product } from './Card';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCcPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -64,12 +63,6 @@ export const ProductImage = styled.img`
   height: 150px; /* Adjust height as needed */
   background-color: lightgray; /* Placeholder color */
   margin-right: 10px;
-`;
-
-const ProductDetails = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
 `;
 
 const QuantityInput = styled.input`
@@ -202,11 +195,6 @@ justify-content: space-around;
 &:hover {
 background-color:#080675e8;
 }
-`
-
-const PayPalLogo = styled.img`
-width: 40px;
-margin-right: 5px;
 `
 const PaypalText = styled.p`
 margin: 0;

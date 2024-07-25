@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 import axios from 'axios';
 import { AccessoriesProducts } from '../../../src/pages/AccessoriesProducts';
@@ -27,7 +27,7 @@ interface HomeProps {
 }
 
 
-
+  
 
 export const Home: React.FC<HomeProps> = () => {
 
@@ -116,9 +116,9 @@ export const Home: React.FC<HomeProps> = () => {
     return (
         <div>
             <Header cartItemCount={addProducts.length} favItemCount={favProducts.length} />
-
+         
             <Routes>
-                <Route path="/" element={<Banner />} />
+                <Route path="/" element={<Banner/>} />
                 <Route path="/cart" element={<Cart addProducts={addProducts} onDelete={onDeleteItem} />} />
                 <Route path="/favorite" element={<Favorite addProducts={favProducts} onAddToCart={handleAddToCart} onDelete={removeFromFavorites} />} />
                 <Route path="/all" element={<All products={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
@@ -126,10 +126,10 @@ export const Home: React.FC<HomeProps> = () => {
                 <Route path="/women" element={<WomenProducts womenProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/accessories" element={<AccessoriesProducts accessories={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
                 <Route path="/electronics" element={<Electronics electroProducts={products} handleAddToCart={handleAddToCart} handleAddToFavorite={handleAddToFavorite} />} />
-                <Route path="/addProducts" element={<AddProducts />} />
+                <Route path="/addProducts" element={<AddProducts/>} />
                 <Route path="/infoForm" element={<AddInfos />} />
-                <Route path="/loginForm" element={<Login />} />
-                <Route path="/registerForm" element={<RegisterForm />} />
+                <Route path="/loginForm" element={<Login/>} />
+                <Route path="/registerForm" element={<RegisterForm/>} />
             </Routes>
         </div>
     )

@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import axios, { AxiosError } from 'axios';
-import { useNavigate } from 'react-router-dom';
+import axios  from 'axios';
+
 import { ErrorMessage, SuccessMessage } from './InfoForm';
 
 
@@ -73,6 +73,7 @@ export const RegisterForm: React.FC = () => {
         e.preventDefault()
         try {
             const res = await axios.post('http://localhost:5000/api/auth/register', registerArray)
+            console.log('response',res)
             setSuccessMessage('Registeration Successful. Please Login')
             setRegisterArray([{ email: '', password: '' }])
         }

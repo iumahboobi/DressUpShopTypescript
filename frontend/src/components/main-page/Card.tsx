@@ -57,15 +57,6 @@ const ProductHeader = styled.h1`
 font-family: 'Bentham', serif;
 font-size: 24px;
 `
-const ProductHeaderTwo = styled.h2`
-margin: 0 0 47px 38px;
-  font-size: 12px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #d2d2d2;
-  letter-spacing: 0.2em;
-`
 const ProductDescriptions = styled.p`
   min-height: 100px;
   margin: 0 0 0 38px;
@@ -128,8 +119,6 @@ background-color: #ad5555;
 &:hover{
   background-color: brown;    
   }
-`
-const ProductCartButton = styled(ProductPriceButton)`
 `
 // Define the interface for the product
 export interface Product {

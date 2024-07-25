@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faSearch, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { Banner } from "./Banner";
+import { faCartShopping, faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { NavigationBar } from "./NavigationBar";
 import { HorizontalLine } from "./Footer";
 import { ProductSearch } from "./ProductSearch";

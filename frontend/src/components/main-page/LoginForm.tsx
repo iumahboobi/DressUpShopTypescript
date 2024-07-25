@@ -92,7 +92,7 @@ export const Login: React.FC = () => {
 
     return <FormContainer>
         <div>
-            <img width={'50%'} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YbM1j3ND4zY3EITRA9hD5H-afFGVzLNIrQ&usqp=CAU' />
+            <img width={'50%'} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9YbM1j3ND4zY3EITRA9hD5H-afFGVzLNIrQ&usqp=CAU' alt='' />
         </div>
         <h3>Please Log in</h3>
         <form onSubmit={handleSubmit}>

@@ -70,7 +70,7 @@ export const ProductForm: React.FC = () => {
         const { name, value } = e.target
         const newProducts = [...products]
 
-        if (name === 'rate' || name == 'count') {
+        if (name === 'rate' || name === 'count') {
             newProducts[index] = {
                 ...newProducts[index], rating: { ...newProducts[index].rating, [name]: Number(value) }
             }
@@ -99,7 +99,7 @@ export const ProductForm: React.FC = () => {
         //check if all fields are filled
 
         for (const product of products) {
-            if (!product.title || product.price == 0 || !product.description || !product.category || !product.image) {
+            if (!product.title || product.price === 0 || !product.description || !product.category || !product.image) {
                 setErrorMessage('Please fill all required fields')
                 return
             }
@@ -107,7 +107,7 @@ export const ProductForm: React.FC = () => {
 
         try {
             const response = await axios.post('http://localhost:5000/api/products', products)
-
+            console.log('response',response)
         } catch (error) {
             if ((error as AxiosError).response && (error as AxiosError).response?.status === 409) {
                 setErrorMessage('Product is already added')
