@@ -8,6 +8,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = 'mongodb://localhost:27017/DressUp'
+require('dotenv').config();
 
 
 // Middleware
