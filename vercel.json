@@ -9,7 +9,7 @@
       "src": "DressUpShopTypescript/frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "frontend/build"
       }
     }
   ],
@@ -20,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "DressUpShopTypescript/frontend/$1"
+      "dest": "/frontend/build/$1"
     }
   ]
 }
