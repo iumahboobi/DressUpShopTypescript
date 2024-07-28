@@ -1,27 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "../DressUpShopTypescript/backend/api/index.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "../DressUpShopTypescript/frontend/package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "/frontend/build"
-        }
+  "version": 2,
+  "builds": [
+    {
+      "src": "DressUpShopTypescript/backend/api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "DressUpShopTypescript/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/build"
       }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "./backend/api/index.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/frontend/$1"
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/build/$1"
+    }
+  ]
+}
