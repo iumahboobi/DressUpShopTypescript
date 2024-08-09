@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "formik": "^2.4.6",
+    "my-app": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.25.1",
