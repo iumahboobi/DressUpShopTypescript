@@ -81,7 +81,8 @@ export const ProductSearch = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/products')
+                const apiBaseUrl = process.env.REACT_APP_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/products`)
                 setProducts(response.data)
             } catch (error) {
                 console.log('Error Fetching data:', error)
