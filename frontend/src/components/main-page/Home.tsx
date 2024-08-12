@@ -39,7 +39,7 @@ export const Home: React.FC<HomeProps> = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/products')
+                const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products`)
                 setProducts(response.data)
             } catch (error) {
                 console.log('Error Fetching data:', error)
