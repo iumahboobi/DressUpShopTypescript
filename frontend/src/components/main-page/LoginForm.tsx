@@ -73,8 +73,8 @@ export const Login: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         try {
-
-            const response= await axios.post('http://localhost:5000/api/auth/login',credentials)
+            const apiBaseUrl = process.env.REACT_APP_BASE_URL;
+            const response= await axios.post(`${apiBaseUrl}/api/auth/login`,credentials)
             
             if(response.status ===200){
                 login(response.data.token,response.data.email)
