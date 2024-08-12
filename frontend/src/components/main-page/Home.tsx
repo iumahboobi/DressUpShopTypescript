@@ -38,8 +38,10 @@ export const Home: React.FC<HomeProps> = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            const apiBaseUrl = process.env.REACT_APP_BASE_URL;
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products`)
+                const response = await axios.get(`${apiBaseUrl}/api/products`)
+                console.log('response from backend',response);
                 setProducts(response.data)
             } catch (error) {
                 console.log('Error Fetching data:', error)
