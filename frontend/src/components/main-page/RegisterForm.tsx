@@ -107,6 +107,5 @@ export const RegisterForm: React.FC = () => {
             {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
         </form>
-
     </FormContainer>
 }
