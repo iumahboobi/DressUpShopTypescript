@@ -72,7 +72,8 @@ export const RegisterForm: React.FC = () => {
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault()
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/register', registerArray)
+            const apiBaseUrl = process.env.REACT_APP_BASE_URL;
+            const res = await axios.post(`${apiBaseUrl}/api/auth/register`, registerArray)
             console.log('response',res)
             setSuccessMessage('Registeration Successful. Please Login')
             setRegisterArray([{ email: '', password: '' }])
