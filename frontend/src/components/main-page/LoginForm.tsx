@@ -60,8 +60,6 @@ export const Login: React.FC = () => {
     const navigate = useNavigate();
     const {login} = useAuth()
   
-
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         const { name, value } = e.target

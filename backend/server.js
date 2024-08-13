@@ -4,7 +4,7 @@ const productRoutes = require('./routes/productRoutes');
 const infoRoutes = require('./routes/infoRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
-const path = require('path'); // Add this line
+const path = require('path'); 
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
