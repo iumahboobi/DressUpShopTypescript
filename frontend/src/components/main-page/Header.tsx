@@ -12,7 +12,12 @@ margin: 0 auto;
 left:0;
 right: 0;
 transition: transform 1s ease-in-out;
-transform: translateY(${props => (props.isHidden ? '-100%' : '0')});
+transform: translateY(${props => (props.isHidden && window.innerWidth>431 ? '-100%' : '0')});
+
+/* Media query to remove transition on mobile devices */
+@media (max-width: 431px) {
+    transition: none;
+  }
 `
 
 const flyIn = keyframes`
