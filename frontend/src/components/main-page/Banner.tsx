@@ -74,7 +74,7 @@ const BackgroundImage = styled.img`
 `;
 const SecondaryImage = styled.img`
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   object-fit: cover;
   margin-top: 20px;
   display: block;
