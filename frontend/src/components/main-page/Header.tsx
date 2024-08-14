@@ -82,7 +82,7 @@ height: 50px;
  display: block;
   height: auto;
   margin: 0 auto;
-  padding: 12px 0;
+  padding: 12px;
 }
 `
 

@@ -9,7 +9,7 @@ export const ProductsContainer = styled.div`
   gap: 50px;
   
   @media (max-width:431px) {
-    padding: 0px;
+    padding: 0px 12px;
   }
 
 
