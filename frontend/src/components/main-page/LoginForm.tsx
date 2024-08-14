@@ -82,7 +82,7 @@ export const Login: React.FC = () => {
 
         } catch (error) {
             if((error as AxiosError).response && (error as AxiosError).response?.status===401 )
-                {setErrorMessage('Invalid email or Password')} 
+                {setErrorMessage('Invalid email or Password Please Register first.')} 
 
             else {setErrorMessage('Failed To Login')}
         }
