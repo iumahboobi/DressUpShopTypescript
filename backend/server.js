@@ -28,10 +28,6 @@ db.once('open', async () => {
     console.log('Connected to MongoDB successfully 🚀');
 });
 
-// Catch-all handler for any requests that don't match the API routes
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 // Routes
 app.use('/api', productRoutes);
