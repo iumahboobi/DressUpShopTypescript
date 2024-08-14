@@ -19,7 +19,7 @@ padding:10px;
 
 `
 
-const ListItem = styled.li`
+export const ListItem = styled.li`
   text-decoration: none;
   color:#2d5463;
   font-size: 24px;
@@ -42,7 +42,7 @@ const ListItem = styled.li`
   }
 `
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit; /* Inherit color from the parent */
 `;
