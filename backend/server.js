@@ -4,31 +4,17 @@ const productRoutes = require('./routes/productRoutes');
 const infoRoutes = require('./routes/infoRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
-const path = require('path'); 
+const path = require('path');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/DressUp';
 
-
-
 // Middleware
 app.use(express.json({ limit: '50mb' }));
 app.use(cors({
-    origin:  '*',
-/** methods: 'GET,POST,PUT,DELETE',
-allowedHeaders: 'Content-Type,Authorization' */
+    origin: '*',
 }));
-
-/**
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../../frontend/build'))); // Add this line
-
-// Serve React frontend for any other route
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../frontend/build', 'index.html'));
-});
- */
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, {
@@ -42,17 +28,15 @@ db.once('open', async () => {
     console.log('Connected to MongoDB successfully 🚀');
 });
 
+// Catch-all handler for any requests that don't match the API routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 // Routes
 app.use('/api', productRoutes);
 app.use('/api/infos', infoRoutes);
 app.use('/api/auth', userRoutes);
-app.get('/hello', (req,res)=> res.send('ok') )
-/*
-// Serve React frontend for any other route
-app.get('*', (req, res) => { // Add this line and the next line
-    res.sendFile(path.join(__dirname, '../../frontend/build', 'index.html'));
-});
-*/
 
 // Start server
 app.listen(PORT, () => {

@@ -108,7 +108,7 @@ export const ProductForm: React.FC = () => {
         try {
             const apiBaseUrl = process.env.REACT_APP_BASE_URL;
             const response = await axios.post(`${apiBaseUrl}/api/products`, products)
-            console.log('response',response)
+            console.log('response',response.data)
         } catch (error) {
             if ((error as AxiosError).response && (error as AxiosError).response?.status === 409) {
                 setErrorMessage('Product is already added')
